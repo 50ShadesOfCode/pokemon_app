@@ -1,8 +1,16 @@
+import 'package:pokemon/router/router.dart';
 import 'package:shared_dependencies/shared_dependencies.dart';
 
-final appLocator = GetIt.instance();
+final GetIt appLocator = GetIt.instance();
 final AppDI appDI = AppDI();
 
 class AppDI {
-  void initDependencies() {}
+  void initDependencies() {
+    appLocator.registerSingleton<ApplicationRouter>(
+      ApplicationRouter(),
+    );
+    appLocator.registerSingleton<AppRouteInformationParser>(
+      AppRouteInformationParser(),
+    );
+  }
 }
