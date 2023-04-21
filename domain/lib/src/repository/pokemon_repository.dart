@@ -3,7 +3,7 @@ import 'package:domain/domain.dart';
 abstract class PokemonRepository {
   const PokemonRepository();
 
-  Future<PokemonList> getPokemonList();
+  Future<PokemonList> getPokemonList(String? url);
 
-  Future<PokemonDetails> getPokemonDetails();
+  Future<PokemonDetails> getPokemonDetails(String url);
 }
