@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pokemon/feature/home/bloc/home_bloc.dart';
 import 'package:pokemon/feature/home/home_view.dart';
 import 'package:pokemon/router/router.dart';
-import 'package:shared_dependencies/src/main.dart';
+import 'package:shared_dependencies/shared_dependencies.dart';
 
 class HomePage extends PageWithScaffoldKey<dynamic> {
   @override
