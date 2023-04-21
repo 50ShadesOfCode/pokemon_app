@@ -1,7 +1,6 @@
 library domain;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export 'src/entities/pokemon.dart';
+export 'src/entities/pokemon_details.dart';
+export 'src/entities/pokemon_list.dart';
+export 'src/repository/pokemon_repository.dart';
