@@ -10,13 +10,24 @@ export 'home_state.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   final ApplicationRouter _applicationRouter;
+  final GetPokemonListUseCase _getPokemonListUseCase;
   HomeBloc({
     required ApplicationRouter applicationRouter,
+    required GetPokemonListUseCase getPokemonListUseCase,
   })  : _applicationRouter = applicationRouter,
+        _getPokemonListUseCase = getPokemonListUseCase,
         super(HomeState(pokemonList: PokemonList.empty())) {
     on<InitListEvent>(_onInitList);
+    on<OpenDetailsEvent>(_onOpenDetails);
   }
 
-  Future<void> _onInitList(
-      InitListEvent event, Emitter<HomeState> emit) async {}
+  Future<void> _onInitList(InitListEvent event, Emitter<HomeState> emit) async {
+    emit(HomeState(pokemonList: await _getPokemonListUseCase.execute(null)));
+  }
+
+  Future<void> _onOpenDetails(
+      OpenDetailsEvent event, Emitter<HomeState> emit) async {
+    //TODO:_applicationRouter.push();
+    emit(state);
+  }
 }

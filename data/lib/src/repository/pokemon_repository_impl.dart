@@ -10,13 +10,11 @@ class PokemonRepositoryImpl extends PokemonRepository {
 
   @override
   Future<PokemonDetails> getPokemonDetails(String url) {
-    // TODO: implement getPokemonDetails
-    throw UnimplementedError();
+    return apiProvider.getPokemonDetails(url);
   }
 
   @override
   Future<PokemonList> getPokemonList(String? url) {
-    // TODO: implement getPokemonList
-    throw UnimplementedError();
+    return apiProvider.getPokemonList(url);
   }
 }
