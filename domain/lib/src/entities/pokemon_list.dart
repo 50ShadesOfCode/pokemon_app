@@ -10,6 +10,12 @@ class PokemonList {
   final String? previous;
   final List<Pokemon> results;
 
+  PokemonList.empty()
+      : count = 0,
+        next = null,
+        previous = null,
+        results = List.empty();
+
   PokemonList({
     required this.count,
     this.next,

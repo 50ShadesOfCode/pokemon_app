@@ -1,3 +1,4 @@
+import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:pokemon/feature/home/bloc/home_bloc.dart';
 import 'package:pokemon/feature/home/home_view.dart';
@@ -10,7 +11,9 @@ class HomePage extends PageWithScaffoldKey<dynamic> {
       MaterialPageRoute<dynamic>(
         settings: this,
         builder: (BuildContext context) => BlocProvider<HomeBloc>(
-          create: (_) => HomeBloc(),
+          create: (_) => HomeBloc(
+            applicationRouter: appLocator.get<ApplicationRouter>(),
+          )..add(InitListEvent()),
           child: const SafeArea(
             child: HomeView(),
           ),
