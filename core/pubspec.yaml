@@ -17,6 +17,8 @@ dependencies:
     path: ../shared_dependencies
   data:
     path: ../data
+  domain:
+    path: ../domain
 
 dev_dependencies:
   flutter_test:

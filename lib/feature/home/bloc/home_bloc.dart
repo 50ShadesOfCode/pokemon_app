@@ -13,5 +13,10 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   HomeBloc({
     required ApplicationRouter applicationRouter,
   })  : _applicationRouter = applicationRouter,
-        super(HomeState(pokemonList: PokemonList.empty()));
+        super(HomeState(pokemonList: PokemonList.empty())) {
+    on<InitListEvent>(_onInitList);
+  }
+
+  Future<void> _onInitList(
+      InitListEvent event, Emitter<HomeState> emit) async {}
 }
