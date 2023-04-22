@@ -1,4 +1,5 @@
 import 'package:domain/domain.dart';
+import 'package:pokemon/feature/details/details.dart';
 import 'package:pokemon/router/router.dart';
 import 'package:shared_dependencies/shared_dependencies.dart';
 
@@ -27,7 +28,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   Future<void> _onOpenDetails(
       OpenDetailsEvent event, Emitter<HomeState> emit) async {
-    //TODO:_applicationRouter.push();
+    _applicationRouter.push(Details.page(event.url));
     emit(state);
   }
 }
