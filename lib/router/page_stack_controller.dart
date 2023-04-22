@@ -52,19 +52,21 @@ mixin PageStackController on ChangeNotifier {
   }
 
   void popUntil(String pageName) {
-    final int index = _pages.indexWhere((page) => page.name == pageName);
+    final int index =
+        _pages.indexWhere((Page<dynamic> page) => page.name == pageName);
     if (index == -1) {
-      throw NavigationException(message: "Page not found");
+      throw NavigationException(message: 'Page not found');
     }
     _pages.removeRange(index + 1, _pages.length);
     notifyListeners();
   }
 
   void popUntilPage(Page<dynamic> untilPage) {
-    final int index = _pages.indexWhere((page) => page.name == untilPage.name);
+    final int index =
+        _pages.indexWhere((Page<dynamic> page) => page.name == untilPage.name);
 
     if (index == -1) {
-      throw NavigationException(message: "Page not found");
+      throw NavigationException(message: 'Page not found');
     }
     _pages.removeRange(index + 1, _pages.length);
     notifyListeners();
