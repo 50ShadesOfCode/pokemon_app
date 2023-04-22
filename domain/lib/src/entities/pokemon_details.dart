@@ -13,6 +13,13 @@ class PokemonDetails {
     required this.height,
   });
 
+  PokemonDetails.empty()
+      : name = "",
+        imageUrl = "",
+        types = List.empty(),
+        weight = 0,
+        height = 0;
+
   PokemonDetails.fromJson(Map<String, dynamic> json)
       : name = json['name'] as String,
         weight = json['weight'] as int,

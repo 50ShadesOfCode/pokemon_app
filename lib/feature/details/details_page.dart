@@ -19,7 +19,11 @@ class DetailsPage extends PageWithScaffoldKey<dynamic> {
       builder: (BuildContext context) => BlocProvider<DetailsBloc>(
         create: (_) => DetailsBloc(
           getPokemonDetailsUseCase: appLocator.get<GetPokemonDetailsUseCase>(),
-        ),
+        )..add(
+            InitDetailsEvent(
+              url: url,
+            ),
+          ),
         child: DetailsView(),
       ),
     );

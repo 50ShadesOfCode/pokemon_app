@@ -12,10 +12,16 @@ class DetailsBloc extends Bloc<DetailsEvent, DetailsState> {
   DetailsBloc({
     required GetPokemonDetailsUseCase getPokemonDetailsUseCase,
   })  : _getPokemonDetailsUseCase = getPokemonDetailsUseCase,
-        super(DetailsState()) {
+        super(DetailsState(pokemonDetails: PokemonDetails.empty())) {
     on<InitDetailsEvent>(_onInitDetails);
   }
 
   Future<void> _onInitDetails(
-      InitDetailsEvent event, Emitter<DetailsState> emit) async {}
+      InitDetailsEvent event, Emitter<DetailsState> emit) async {
+    emit(
+      DetailsState(
+        pokemonDetails: await _getPokemonDetailsUseCase.execute(event.url),
+      ),
+    );
+  }
 }
