@@ -1,6 +1,7 @@
 import 'package:core/core.dart';
 import 'package:data/data.dart';
 import 'package:domain/domain.dart';
+import 'package:shared_dependencies/shared_dependencies.dart';
 
 final DataDI dataDI = DataDI();
 
@@ -24,5 +25,10 @@ class DataDI {
         pokemonRepository: appLocator.get<PokemonRepository>(),
       ),
     );
+  }
+
+  Future<void> initHive() async {
+    await Hive.openBox('listBox');
+    await Hive.openBox('detailsBox');
   }
 }
