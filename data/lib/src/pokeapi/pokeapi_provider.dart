@@ -23,21 +23,19 @@ class PokeAPIProvider {
     dynamic res = _listBox.get(url);
     if (res == null) {
       Response<dynamic> response = await _dio.get(url);
-      PokemonList listResult = PokemonList.fromJson(response.data);
-      _listBox.put(url, listResult);
-      return listResult;
+      _listBox.put(url, response.data);
+      return PokemonList.fromJson(response.data);
     }
-    return res;
+    return PokemonList.fromJson(res);
   }
 
   Future<PokemonDetails> getPokemonDetails(String url) async {
     dynamic res = _detailsBox.get(url);
     if (res == null) {
       Response<dynamic> response = await _dio.get(url);
-      PokemonDetails detailsResult = PokemonDetails.fromJson(response.data);
-      _detailsBox.put(url, detailsResult);
-      return detailsResult;
+      _detailsBox.put(url, response.data);
+      return PokemonDetails.fromJson(response.data);
     }
-    return res;
+    return PokemonDetails.fromJson(res);
   }
 }
