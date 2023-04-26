@@ -24,7 +24,10 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   }
 
   Future<void> _onInitList(InitListEvent event, Emitter<HomeState> emit) async {
-    emit(HomeState(pokemonList: await _getPokemonListUseCase.execute(null)));
+    emit(HomeState(
+      pokemonList: await _getPokemonListUseCase
+          .execute('https://pokeapi.co/api/v2/pokemon'),
+    ));
   }
 
   void _onOpenDetails(OpenDetailsEvent event, Emitter<HomeState> emit) {

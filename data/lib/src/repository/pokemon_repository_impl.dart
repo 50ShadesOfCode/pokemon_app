@@ -14,7 +14,7 @@ class PokemonRepositoryImpl extends PokemonRepository {
   }
 
   @override
-  Future<PokemonList> getPokemonList(String? url) {
+  Future<PokemonList> getPokemonList(String url) {
     return apiProvider.getPokemonList(url);
   }
 }
