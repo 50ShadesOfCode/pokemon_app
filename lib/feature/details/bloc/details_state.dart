@@ -1,9 +1,11 @@
 import 'package:domain/domain.dart';
 
-class DetailsState {
+class DetailsState {}
+
+class DetailsStateSuccess extends DetailsState {
   final PokemonDetails pokemonDetails;
 
-  DetailsState({
+  DetailsStateSuccess({
     required this.pokemonDetails,
   });
 }

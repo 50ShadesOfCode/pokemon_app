@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.kakty.new_app">
+    package="com.kakty.pokemon">
    <application
         android:label="Pokemons"
         android:name="${applicationName}"

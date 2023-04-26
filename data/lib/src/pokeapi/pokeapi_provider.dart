@@ -19,15 +19,13 @@ class PokeAPIProvider {
         );
 
   Future<PokemonList> getPokemonList(String? url) async {
-    Response<dynamic> response = await _dio
-        .get(url != null ? 'https://pokeapi.co/api/v2/pokemon' : url!);
-    Map<String, dynamic> data = jsonDecode(response.data);
-    return PokemonList.fromJson(data);
+    Response<dynamic> response =
+        await _dio.get(url ?? 'https://pokeapi.co/api/v2/pokemon');
+    return PokemonList.fromJson(response.data);
   }
 
   Future<PokemonDetails> getPokemonDetails(String url) async {
     Response<dynamic> response = await _dio.get(url);
-    Map<String, dynamic> data = jsonDecode(response.data);
-    return PokemonDetails.fromJson(data);
+    return PokemonDetails.fromJson(response.data);
   }
 }

@@ -14,18 +14,19 @@ class DetailsPage extends PageWithScaffoldKey<dynamic> {
   });
 
   @override
-  Route<dynamic> createRoute(BuildContext context) {
-    return MaterialPageRoute<dynamic>(
-      builder: (BuildContext context) => BlocProvider<DetailsBloc>(
-        create: (_) => DetailsBloc(
-          getPokemonDetailsUseCase: appLocator.get<GetPokemonDetailsUseCase>(),
-        )..add(
-            InitDetailsEvent(
-              url: url,
+  Route<dynamic> createRoute(BuildContext context) =>
+      MaterialPageRoute<dynamic>(
+        settings: this,
+        builder: (BuildContext context) => BlocProvider<DetailsBloc>(
+          create: (_) => DetailsBloc(
+            getPokemonDetailsUseCase:
+                appLocator.get<GetPokemonDetailsUseCase>(),
+          )..add(
+              InitDetailsEvent(
+                url: url,
+              ),
             ),
-          ),
-        child: DetailsView(),
-      ),
-    );
-  }
+          child: DetailsView(),
+        ),
+      );
 }

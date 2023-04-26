@@ -1,4 +1,4 @@
-package com.example.new_app
+package com.kakty.pokemon
 
 import io.flutter.embedding.android.FlutterActivity
 
