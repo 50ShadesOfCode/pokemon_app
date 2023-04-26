@@ -10,3 +10,9 @@ class OpenDetailsEvent extends HomeEvent {
 
   OpenDetailsEvent({required this.url});
 }
+
+class OpenPageEvent extends HomeEvent {
+  final String url;
+
+  OpenPageEvent({required this.url});
+}

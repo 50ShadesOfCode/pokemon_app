@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_dependencies/shared_dependencies.dart';
+import 'package:cupertino_icons/cupertino_icons.dart';
 
 import 'bloc/home_bloc.dart';
 
@@ -16,6 +18,41 @@ class _HomeViewState extends State<HomeView> {
     return BlocBuilder<HomeBloc, HomeState>(
         builder: (BuildContext context, HomeState state) {
       return Scaffold(
+        bottomNavigationBar: BottomNavigationBar(
+          items: <BottomNavigationBarItem>[
+            state.pokemonList.previous != null
+                ? const BottomNavigationBarItem(
+                    icon: Icon(Icons.skip_previous), label: 'Previous')
+                : const BottomNavigationBarItem(
+                    icon: Icon(
+                      Icons.skip_previous,
+                      color: Colors.grey,
+                    ),
+                  ),
+            state.pokemonList.next != null
+                ? const BottomNavigationBarItem(
+                    icon: Icon(Icons.skip_next),
+                  )
+                : const BottomNavigationBarItem(
+                    icon: Icon(
+                      Icons.skip_next,
+                      color: Colors.grey,
+                    ),
+                  ),
+          ],
+          onTap: (int index) {
+            if (index == 0 && state.pokemonList.previous != null) {
+              BlocProvider.of<HomeBloc>(context).add(
+                OpenPageEvent(url: state.pokemonList.previous!),
+              );
+            }
+            if (index == 1 && state.pokemonList.next != null) {
+              BlocProvider.of<HomeBloc>(context).add(
+                OpenPageEvent(url: state.pokemonList.next!),
+              );
+            }
+          },
+        ),
         body: ScrollConfiguration(
           behavior: const ScrollBehavior().copyWith(overscroll: false),
           child: ListView.separated(

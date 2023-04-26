@@ -20,15 +20,20 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         super(HomeState(pokemonList: PokemonList.empty())) {
     on<InitListEvent>(_onInitList);
     on<OpenDetailsEvent>(_onOpenDetails);
+    on<OpenPageEvent>(_onOpenPage);
   }
 
   Future<void> _onInitList(InitListEvent event, Emitter<HomeState> emit) async {
     emit(HomeState(pokemonList: await _getPokemonListUseCase.execute(null)));
   }
 
-  Future<void> _onOpenDetails(
-      OpenDetailsEvent event, Emitter<HomeState> emit) async {
+  void _onOpenDetails(OpenDetailsEvent event, Emitter<HomeState> emit) {
     _applicationRouter.push(Details.page(event.url));
     emit(state);
+  }
+
+  Future<void> _onOpenPage(OpenPageEvent event, Emitter<HomeState> emit) async {
+    emit(HomeState(
+        pokemonList: await _getPokemonListUseCase.execute(event.url)));
   }
 }
