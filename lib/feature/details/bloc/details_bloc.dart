@@ -18,7 +18,6 @@ class DetailsBloc extends Bloc<DetailsEvent, DetailsState> {
 
   Future<void> _onInitDetails(
       InitDetailsEvent event, Emitter<DetailsState> emit) async {
-    print("init details");
     emit(
       DetailsStateSuccess(
         pokemonDetails: await _getPokemonDetailsUseCase.execute(event.url),

@@ -17,14 +17,14 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     required GetPokemonListUseCase getPokemonListUseCase,
   })  : _applicationRouter = applicationRouter,
         _getPokemonListUseCase = getPokemonListUseCase,
-        super(HomeState(pokemonList: PokemonList.empty())) {
+        super(HomeState()) {
     on<InitListEvent>(_onInitList);
     on<OpenDetailsEvent>(_onOpenDetails);
     on<OpenPageEvent>(_onOpenPage);
   }
 
   Future<void> _onInitList(InitListEvent event, Emitter<HomeState> emit) async {
-    emit(HomeState(
+    emit(HomeStateSuccess(
       pokemonList: await _getPokemonListUseCase
           .execute('https://pokeapi.co/api/v2/pokemon'),
     ));
@@ -36,7 +36,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   }
 
   Future<void> _onOpenPage(OpenPageEvent event, Emitter<HomeState> emit) async {
-    emit(HomeState(
+    emit(HomeStateSuccess(
         pokemonList: await _getPokemonListUseCase.execute(event.url)));
   }
 }
