@@ -9,3 +9,11 @@ class DetailsStateSuccess extends DetailsState {
     required this.pokemonDetails,
   });
 }
+
+class DetailsStateError extends DetailsState {
+  final String currentUrl;
+
+  DetailsStateError({
+    required this.currentUrl,
+  });
+}

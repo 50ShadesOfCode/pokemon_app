@@ -7,8 +7,8 @@ import 'application.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
+  await dataDI.initHive();
   appDI.initDependencies();
   dataDI.initDependencies();
-  await dataDI.initHive();
   runApp(const Application());
 }

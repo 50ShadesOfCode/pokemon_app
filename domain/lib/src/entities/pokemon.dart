@@ -12,8 +12,9 @@ class Pokemon {
     required this.url,
   });
 
-  factory Pokemon.fromJson(Map<String, dynamic> json) =>
-      _$PokemonFromJson(json);
+  Pokemon.fromJson(Map<dynamic, dynamic> json)
+      : name = json['name'] as String,
+        url = json['url'] as String;
 
   Map<String, dynamic> toJson() => _$PokemonToJson(this);
 }

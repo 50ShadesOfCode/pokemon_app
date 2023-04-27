@@ -10,12 +10,6 @@ class PokemonList {
   final String? previous;
   final List<Pokemon> results;
 
-  PokemonList.empty()
-      : count = 0,
-        next = null,
-        previous = null,
-        results = List.empty();
-
   PokemonList({
     required this.count,
     this.next,
@@ -23,7 +17,13 @@ class PokemonList {
     required this.results,
   });
 
-  factory PokemonList.fromJson(Map<String, dynamic> json) =>
-      _$PokemonListFromJson(json);
+  PokemonList.fromJson(Map<dynamic, dynamic> json)
+      : count = json['count'] as int,
+        next = json['next'] as String?,
+        previous = json['previous'] as String?,
+        results = (json['results'] as List<dynamic>)
+            .map((e) => Pokemon.fromJson(e))
+            .toList();
+
   Map<String, dynamic> toJson() => _$PokemonListToJson(this);
 }

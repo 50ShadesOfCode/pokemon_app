@@ -7,3 +7,11 @@ class HomeStateSuccess extends HomeState {
 
   HomeStateSuccess({required this.pokemonList});
 }
+
+class HomeStateError extends HomeState {
+  final String currentUrl;
+
+  HomeStateError({
+    required this.currentUrl,
+  });
+}

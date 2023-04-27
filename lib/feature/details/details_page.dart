@@ -26,7 +26,9 @@ class DetailsPage extends PageWithScaffoldKey<dynamic> {
                 url: url,
               ),
             ),
-          child: DetailsView(),
+          child: SafeArea(
+            child: DetailsView(),
+          ),
         ),
       );
 }

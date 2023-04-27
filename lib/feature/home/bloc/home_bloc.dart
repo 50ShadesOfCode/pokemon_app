@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:domain/domain.dart';
 import 'package:pokemon/feature/details/details.dart';
 import 'package:pokemon/router/router.dart';
@@ -24,6 +26,12 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   }
 
   Future<void> _onInitList(InitListEvent event, Emitter<HomeState> emit) async {
+    try {
+      await _getPokemonListUseCase.execute('https://pokeapi.co/api/v2/pokemon');
+    } catch (_) {
+      emit(HomeStateError(currentUrl: 'https://pokeapi.co/api/v2/pokemon'));
+      return;
+    }
     emit(HomeStateSuccess(
       pokemonList: await _getPokemonListUseCase
           .execute('https://pokeapi.co/api/v2/pokemon'),
@@ -36,7 +44,14 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   }
 
   Future<void> _onOpenPage(OpenPageEvent event, Emitter<HomeState> emit) async {
+    try {
+      await _getPokemonListUseCase.execute(event.url);
+    } catch (_) {
+      emit(HomeStateError(currentUrl: event.url));
+      return;
+    }
     emit(HomeStateSuccess(
-        pokemonList: await _getPokemonListUseCase.execute(event.url)));
+      pokemonList: await _getPokemonListUseCase.execute(event.url),
+    ));
   }
 }
