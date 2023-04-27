@@ -44,10 +44,6 @@ class _FakePokemonDetails_1 extends _i1.SmartFake
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockPokemonRepository extends _i1.Mock implements _i2.PokemonRepository {
-  MockPokemonRepository() {
-    _i1.throwOnMissingStub(this);
-  }
-
   @override
   _i3.Future<_i2.PokemonList> getPokemonList(String? url) =>
       (super.noSuchMethod(
@@ -56,6 +52,14 @@ class MockPokemonRepository extends _i1.Mock implements _i2.PokemonRepository {
           [url],
         ),
         returnValue: _i3.Future<_i2.PokemonList>.value(_FakePokemonList_0(
+          this,
+          Invocation.method(
+            #getPokemonList,
+            [url],
+          ),
+        )),
+        returnValueForMissingStub:
+            _i3.Future<_i2.PokemonList>.value(_FakePokemonList_0(
           this,
           Invocation.method(
             #getPokemonList,
@@ -71,6 +75,14 @@ class MockPokemonRepository extends _i1.Mock implements _i2.PokemonRepository {
           [url],
         ),
         returnValue: _i3.Future<_i2.PokemonDetails>.value(_FakePokemonDetails_1(
+          this,
+          Invocation.method(
+            #getPokemonDetails,
+            [url],
+          ),
+        )),
+        returnValueForMissingStub:
+            _i3.Future<_i2.PokemonDetails>.value(_FakePokemonDetails_1(
           this,
           Invocation.method(
             #getPokemonDetails,

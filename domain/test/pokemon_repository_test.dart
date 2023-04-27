@@ -1,5 +1,5 @@
 import 'package:domain/domain.dart';
 import 'package:mockito/annotations.dart';
 
-@GenerateMocks(<Type>[PokemonRepository])
+@GenerateNiceMocks(<MockSpec>[MockSpec<PokemonRepository>()])
 void main() {}

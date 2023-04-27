@@ -10,7 +10,7 @@ void main() {
     pokemonRepository: MockPokemonRepository(),
   );
   group('GetPokemonDetailsUseCase', () {
-    test('verify getPokemonList called once', () {
+    test('Verify repo.getPokemonDetails called once', () {
       const String params = 'https://pokeapi.co/api/v2/pokemon/2';
       useCase.execute(params);
       verify(repo.getPokemonDetails('https://pokeapi.co/api/v2/pokemon/2'))

@@ -1,9 +1,6 @@
 import 'package:shared_dependencies/shared_dependencies.dart';
 import 'pokemon.dart';
 
-part 'pokemon_list.g.dart';
-
-@JsonSerializable(explicitToJson: true)
 class PokemonList {
   final int count;
   final String? next;
@@ -24,6 +21,4 @@ class PokemonList {
         results = (json['results'] as List<dynamic>)
             .map((e) => Pokemon.fromJson(e))
             .toList();
-
-  Map<String, dynamic> toJson() => _$PokemonListToJson(this);
 }
