@@ -62,10 +62,12 @@ class _DetailsViewState extends State<DetailsView> {
           );
         } else {
           return Scaffold(
+            appBar: AppBar(),
             body: Center(
               child: state is DetailsStateError
                   ? Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         const Text(
                           'Oops, try to check internet connection or reload the page..',
