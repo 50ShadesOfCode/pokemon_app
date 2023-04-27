@@ -1,5 +1,3 @@
-import 'package:shared_dependencies/shared_dependencies.dart';
-
 class Pokemon {
   final String name;
   final String url;
