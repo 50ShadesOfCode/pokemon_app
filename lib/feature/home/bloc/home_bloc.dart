@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:domain/domain.dart';
 import 'package:pokemon/feature/details/details.dart';
 import 'package:pokemon/router/router.dart';

@@ -15,7 +15,9 @@ class HomePage extends PageWithScaffoldKey<dynamic> {
           create: (_) => HomeBloc(
             applicationRouter: appLocator.get<ApplicationRouter>(),
             getPokemonListUseCase: appLocator.get<GetPokemonListUseCase>(),
-          )..add(InitListEvent()),
+          )..add(
+              InitListEvent(),
+            ),
           child: const SafeArea(
             child: HomeView(),
           ),

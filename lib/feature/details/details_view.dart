@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pokemon/feature/home/bloc/home_bloc.dart';
 import 'package:shared_dependencies/shared_dependencies.dart';
 
 import 'bloc/details_bloc.dart';
@@ -61,33 +60,28 @@ class _DetailsViewState extends State<DetailsView> {
               ),
             ),
           );
-        } else if (state is DetailsStateError) {
+        }
+        {
           return Scaffold(
             body: Center(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  const Text(
-                    'Oops, try to check internet connection or reload the page..',
-                  ),
-                  MaterialButton(
-                    onPressed: () {
-                      BlocProvider.of<DetailsBloc>(context).add(
-                        InitDetailsEvent(
-                          url: state.currentUrl,
+              child: state is DetailsStateError
+                  ? Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        const Text(
+                          'Oops, try to check internet connection or reload the page..',
                         ),
-                      );
-                    },
-                    child: const Icon(Icons.restart_alt),
-                  )
-                ],
-              ),
-            ),
-          );
-        } else {
-          return const Scaffold(
-            body: Center(
-              child: CircularProgressIndicator(),
+                        MaterialButton(
+                          onPressed: () {
+                            BlocProvider.of<DetailsBloc>(context).add(
+                              InitDetailsEvent(url: state.currentUrl),
+                            );
+                          },
+                          child: const Icon(Icons.restart_alt),
+                        )
+                      ],
+                    )
+                  : const CircularProgressIndicator(),
             ),
           );
         }

@@ -22,9 +22,7 @@ class DetailsPage extends PageWithScaffoldKey<dynamic> {
             getPokemonDetailsUseCase:
                 appLocator.get<GetPokemonDetailsUseCase>(),
           )..add(
-              InitDetailsEvent(
-                url: url,
-              ),
+              InitDetailsEvent(url: url),
             ),
           child: SafeArea(
             child: DetailsView(),

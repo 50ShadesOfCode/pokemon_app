@@ -31,7 +31,7 @@ mixin PageStackController on ChangeNotifier {
     } else {
       push(page);
     }
-    notifyListeners(); // ?
+    notifyListeners();
   }
 
   void replaceLastWith(List<Page<dynamic>> pages) {
@@ -41,7 +41,7 @@ mixin PageStackController on ChangeNotifier {
     } else {
       pushAll(pages);
     }
-    notifyListeners(); // ?
+    notifyListeners();
   }
 
   void resetTo(Page<dynamic> page) {
