@@ -60,8 +60,7 @@ class _DetailsViewState extends State<DetailsView> {
               ),
             ),
           );
-        }
-        {
+        } else {
           return Scaffold(
             body: Center(
               child: state is DetailsStateError
