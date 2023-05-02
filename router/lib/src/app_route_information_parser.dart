@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:pokemon/feature/home/home.dart';
-import 'package:pokemon/router/route_configuration.dart';
+import 'package:home/home.dart';
+import 'package:router/router.dart';
 
 class AppRouteInformationParser
     extends RouteInformationParser<RouteConfiguration> {

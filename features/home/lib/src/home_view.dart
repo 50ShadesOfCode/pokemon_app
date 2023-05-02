@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_dependencies/shared_dependencies.dart';
+import 'package:core_ui/core_ui.dart';
 
 import 'bloc/home_bloc.dart';
 
@@ -21,9 +22,7 @@ class _HomeViewState extends State<HomeView> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  const Text(
-                    'Oops, try to check internet connection or reload the page..',
-                  ),
+                  const Text(AppStrings.networkErrorMessage),
                   MaterialButton(
                     onPressed: () {
                       BlocProvider.of<HomeBloc>(context).add(
@@ -45,10 +44,10 @@ class _HomeViewState extends State<HomeView> {
                   state.pokemonList.previous != null
                       ? const BottomNavigationBarItem(
                           icon: Icon(Icons.skip_previous),
-                          label: 'Previous',
+                          label: AppStrings.previousLabel,
                         )
                       : const BottomNavigationBarItem(
-                          label: 'Previous',
+                          label: AppStrings.previousLabel,
                           icon: Icon(
                             Icons.skip_previous,
                             color: Color.fromARGB(255, 224, 224, 224),
@@ -57,10 +56,10 @@ class _HomeViewState extends State<HomeView> {
                   state.pokemonList.next != null
                       ? const BottomNavigationBarItem(
                           icon: Icon(Icons.skip_next),
-                          label: 'Next',
+                          label: AppStrings.nextLabel,
                         )
                       : const BottomNavigationBarItem(
-                          label: 'Next',
+                          label: AppStrings.nextLabel,
                           icon: Icon(
                             Icons.skip_next,
                             color: Color.fromARGB(255, 224, 224, 224),

@@ -1,4 +1,4 @@
-name: core
+name: core_ui
 description: A new Flutter package project.
 version: 0.0.1
 publish_to: none
@@ -10,15 +10,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
-  router:
-    path: ../router
-  shared_dependencies:
-    path: ../shared_dependencies
-  data:
-    path: ../data
-  domain:
-    path: ../domain
 
 dev_dependencies:
   flutter_test:

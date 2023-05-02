@@ -1,11 +1,10 @@
 import 'package:core/core.dart';
+import 'package:details/src/bloc/details_bloc.dart';
 import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
-import 'package:pokemon/feature/details/bloc/details_bloc.dart';
-import 'package:pokemon/router/router.dart';
+import 'package:router/router.dart';
 import 'package:shared_dependencies/shared_dependencies.dart';
-
-import 'details_view.dart';
+import 'package:details/src/details_view.dart';
 
 class DetailsPage extends PageWithScaffoldKey<dynamic> {
   final String url;

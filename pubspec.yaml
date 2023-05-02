@@ -12,10 +12,8 @@ dependencies:
 
   core:
     path: core
-  data:
-    path: data
-  domain:
-    path: domain
+  router:
+    path: router
   shared_dependencies:
     path: shared_dependencies
 

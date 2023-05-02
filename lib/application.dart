@@ -1,6 +1,6 @@
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:pokemon/router/router.dart';
+import 'package:router/router.dart';
 
 class Application extends StatefulWidget {
   const Application({super.key});

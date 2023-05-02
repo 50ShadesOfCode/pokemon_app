@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:pokemon/router/page_stack_controller.dart';
-import 'package:pokemon/router/route_configuration.dart';
+import 'package:router/router.dart';
 
 class ApplicationRouter extends RouterDelegate<RouteConfiguration>
     with

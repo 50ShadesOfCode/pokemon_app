@@ -1,6 +1,6 @@
 import 'package:domain/domain.dart';
-import 'package:pokemon/feature/details/details.dart';
-import 'package:pokemon/router/router.dart';
+import 'package:details/details.dart';
+import 'package:router/router.dart';
 import 'package:shared_dependencies/shared_dependencies.dart';
 
 import 'home_event.dart';

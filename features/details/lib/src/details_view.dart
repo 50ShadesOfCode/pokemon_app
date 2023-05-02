@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:shared_dependencies/shared_dependencies.dart';
-
-import 'bloc/details_bloc.dart';
+import 'package:details/src/bloc/details_bloc.dart';
+import 'package:core_ui/core_ui.dart';
 
 class DetailsView extends StatefulWidget {
+  const DetailsView({super.key});
+
   @override
   State<DetailsView> createState() => _DetailsViewState();
 }
@@ -13,7 +15,7 @@ class _DetailsViewState extends State<DetailsView> {
     String res = '';
     for (int i = 0; i < types.length; ++i) {
       if (i != types.length - 1) {
-        res += types[i] + ', ';
+        res += '${types[i]}, ';
       } else {
         res += types[i];
       }
@@ -53,9 +55,9 @@ class _DetailsViewState extends State<DetailsView> {
                         (BuildContext context, String url, dynamic error) =>
                             const Icon(Icons.error),
                   ),
-                  Text('Types: ' + _types(state.pokemonDetails.types)),
-                  Text('Weight: ' + state.pokemonDetails.weight.toString()),
-                  Text('Height: ' + state.pokemonDetails.height.toString()),
+                  Text('Types: ${_types(state.pokemonDetails.types)}'),
+                  Text('Weight: ${state.pokemonDetails.weight}'),
+                  Text('Height: ${state.pokemonDetails.height}'),
                 ],
               ),
             ),
@@ -69,9 +71,7 @@ class _DetailsViewState extends State<DetailsView> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        const Text(
-                          'Oops, try to check internet connection or reload the page..',
-                        ),
+                        const Text(AppStrings.networkErrorMessage),
                         MaterialButton(
                           onPressed: () {
                             BlocProvider.of<DetailsBloc>(context).add(
