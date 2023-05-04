@@ -8,10 +8,8 @@ mixin PageStackController on ChangeNotifier {
   List<Page<dynamic>> get pages => List<Page<dynamic>>.unmodifiable(_pages);
 
   void push(Page<dynamic> page) {
-    //if (!_pages.map((Page<dynamic> page) => page.key).contains(page.key)) {
     _pages.add(page);
     notifyListeners();
-    //}
   }
 
   void pushAll(List<Page<dynamic>> pages) {

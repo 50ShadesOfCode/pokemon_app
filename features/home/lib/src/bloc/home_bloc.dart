@@ -12,11 +12,14 @@ export 'home_state.dart';
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   final ApplicationRouter _applicationRouter;
   final GetPokemonListUseCase _getPokemonListUseCase;
+  final InitPokemonListUseCase _initPokemonListUseCase;
   HomeBloc({
     required ApplicationRouter applicationRouter,
     required GetPokemonListUseCase getPokemonListUseCase,
+    required InitPokemonListUseCase initPokemonListUseCase,
   })  : _applicationRouter = applicationRouter,
         _getPokemonListUseCase = getPokemonListUseCase,
+        _initPokemonListUseCase = initPokemonListUseCase,
         super(HomeState()) {
     on<InitListEvent>(_onInitList);
     on<OpenDetailsEvent>(_onOpenDetails);
@@ -25,14 +28,13 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   Future<void> _onInitList(InitListEvent event, Emitter<HomeState> emit) async {
     try {
-      await _getPokemonListUseCase.execute('https://pokeapi.co/api/v2/pokemon');
+      await _initPokemonListUseCase.execute(NoParams());
     } catch (_) {
       emit(HomeStateError(currentUrl: 'https://pokeapi.co/api/v2/pokemon'));
       return;
     }
     emit(HomeStateSuccess(
-      pokemonList: await _getPokemonListUseCase
-          .execute('https://pokeapi.co/api/v2/pokemon'),
+      pokemonList: await _initPokemonListUseCase.execute(NoParams()),
     ));
   }
 

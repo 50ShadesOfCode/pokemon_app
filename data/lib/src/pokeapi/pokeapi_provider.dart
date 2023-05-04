@@ -1,33 +1,22 @@
 import 'dart:async';
 
+import 'package:data/data.dart';
 import 'package:domain/domain.dart';
 import 'package:shared_dependencies/shared_dependencies.dart';
 
 class PokeAPIProvider {
-  final Dio _dio;
+  final HttpClient _httpClient;
   final Box<dynamic> _listBox;
   final Box<dynamic> _detailsBox;
-  PokeAPIProvider()
-      : _dio = Dio(
-          BaseOptions(
-            headers: <String, dynamic>{
-              'Accept-Charset': 'utf-8',
-              'User-Agent': 'DartyFM',
-            },
-            contentType: Headers.formUrlEncodedContentType,
-            responseType: ResponseType.json,
-          ),
-        ),
+  PokeAPIProvider({required HttpClient httpClient})
+      : _httpClient = httpClient,
         _listBox = Hive.box("listBox"),
         _detailsBox = Hive.box("detailsBox");
 
   Future<PokemonList> getPokemonList(String url) async {
     dynamic res = _listBox.get(url);
     if (res == null) {
-      Response<dynamic> response = await _dio.get(url);
-      /*if (response.statusCode! >= 400) {
-        throw const HttpException('No internet connection');
-      }*/
+      Response<dynamic> response = await _httpClient.get(url);
       _listBox.put(url, response.data);
       return PokemonList.fromJson(response.data);
     }
@@ -37,13 +26,21 @@ class PokeAPIProvider {
   Future<PokemonDetails> getPokemonDetails(String url) async {
     dynamic res = _detailsBox.get(url);
     if (res == null) {
-      Response<dynamic> response = await _dio.get(url);
-      /*if (response.statusCode! >= 400) {
-        throw const HttpException('No internet connection');
-      }*/
+      Response<dynamic> response = await _httpClient.get(url);
       _detailsBox.put(url, response.data);
       return PokemonDetails.fromJson(response.data);
     }
     return PokemonDetails.fromJson(res);
+  }
+
+  Future<PokemonList> initPokemonList() async {
+    String url = 'https://pokeapi.co/api/v2/pokemon';
+    dynamic res = _listBox.get(url);
+    if (res == null) {
+      Response<dynamic> response = await _httpClient.get(url);
+      _listBox.put(url, response.data);
+      return PokemonList.fromJson(response.data);
+    }
+    return PokemonList.fromJson(res);
   }
 }

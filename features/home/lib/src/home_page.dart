@@ -15,6 +15,7 @@ class HomePage extends PageWithScaffoldKey<dynamic> {
           create: (_) => HomeBloc(
             applicationRouter: appLocator.get<ApplicationRouter>(),
             getPokemonListUseCase: appLocator.get<GetPokemonListUseCase>(),
+            initPokemonListUseCase: appLocator.get<InitPokemonListUseCase>(),
           )..add(
               InitListEvent(),
             ),

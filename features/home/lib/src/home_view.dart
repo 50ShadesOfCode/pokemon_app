@@ -50,7 +50,7 @@ class _HomeViewState extends State<HomeView> {
                           label: AppStrings.previousLabel,
                           icon: Icon(
                             Icons.skip_previous,
-                            color: Color.fromARGB(255, 224, 224, 224),
+                            color: AppTheme.inactiveColor,
                           ),
                         ),
                   state.pokemonList.next != null
@@ -62,7 +62,7 @@ class _HomeViewState extends State<HomeView> {
                           label: AppStrings.nextLabel,
                           icon: Icon(
                             Icons.skip_next,
-                            color: Color.fromARGB(255, 224, 224, 224),
+                            color: AppTheme.inactiveColor,
                           ),
                         ),
                 ],
@@ -74,7 +74,7 @@ class _HomeViewState extends State<HomeView> {
                   } else if (index == 0) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(
-                        content: Text('No previous page'),
+                        content: Text(AppStrings.noPreviousPageWarning),
                       ),
                     );
                   }
@@ -85,7 +85,7 @@ class _HomeViewState extends State<HomeView> {
                   } else if (index == 1) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(
-                        content: Text('No next page'),
+                        content: Text(AppStrings.noNextPageWarning),
                       ),
                     );
                   }

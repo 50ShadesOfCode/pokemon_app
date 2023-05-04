@@ -1,3 +1,5 @@
 part of core_ui;
 
-class AppColors {}
+class AppColors {
+  static const Color alto = Color.fromRGBO(224, 224, 224, 1);
+}

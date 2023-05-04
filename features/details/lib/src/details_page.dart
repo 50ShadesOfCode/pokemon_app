@@ -23,7 +23,7 @@ class DetailsPage extends PageWithScaffoldKey<dynamic> {
           )..add(
               InitDetailsEvent(url: url),
             ),
-          child: SafeArea(
+          child: const SafeArea(
             child: DetailsView(),
           ),
         ),

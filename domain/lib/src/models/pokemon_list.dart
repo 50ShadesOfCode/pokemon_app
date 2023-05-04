@@ -1,4 +1,4 @@
-import 'pokemon.dart';
+import 'package:domain/domain.dart';
 
 class PokemonList {
   final int count;

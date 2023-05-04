@@ -1,3 +1,9 @@
 library core_ui;
 
-export 'src/app_strings.dart';
+import 'package:flutter/material.dart';
+
+part 'src/app_colors.dart';
+
+part 'src/app_strings.dart';
+
+part 'src/app_theme.dart';
