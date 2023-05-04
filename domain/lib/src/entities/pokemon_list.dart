@@ -12,12 +12,4 @@ class PokemonList {
     this.previous,
     required this.results,
   });
-
-  PokemonList.fromJson(Map<dynamic, dynamic> json)
-      : count = json['count'] as int,
-        next = json['next'] as String?,
-        previous = json['previous'] as String?,
-        results = (json['results'] as List<dynamic>)
-            .map((e) => Pokemon.fromJson(e))
-            .toList();
 }

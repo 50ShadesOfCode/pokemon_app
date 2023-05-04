@@ -18,9 +18,9 @@ class PokeAPIProvider {
     if (res == null) {
       Response<dynamic> response = await _httpClient.get(url);
       _listBox.put(url, response.data);
-      return PokemonList.fromJson(response.data);
+      return PokemonListMapper.fromJson(response.data);
     }
-    return PokemonList.fromJson(res);
+    return PokemonListMapper.fromJson(res);
   }
 
   Future<PokemonDetails> getPokemonDetails(String url) async {
@@ -28,9 +28,9 @@ class PokeAPIProvider {
     if (res == null) {
       Response<dynamic> response = await _httpClient.get(url);
       _detailsBox.put(url, response.data);
-      return PokemonDetails.fromJson(response.data);
+      return PokemonDetailsMapper.fromJson(response.data);
     }
-    return PokemonDetails.fromJson(res);
+    return PokemonDetailsMapper.fromJson(res);
   }
 
   Future<PokemonList> initPokemonList() async {
@@ -39,8 +39,8 @@ class PokeAPIProvider {
     if (res == null) {
       Response<dynamic> response = await _httpClient.get(url);
       _listBox.put(url, response.data);
-      return PokemonList.fromJson(response.data);
+      return PokemonListMapper.fromJson(response.data);
     }
-    return PokemonList.fromJson(res);
+    return PokemonListMapper.fromJson(res);
   }
 }
