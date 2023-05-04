@@ -75,11 +75,11 @@ Asynchronous tasks are processed with Flutter Async and Dart Streams.
 App uses pokeapi.
 
 ## Presentations abstractions
-Error handling is made via AppPresentationHandler which processes different error cases.
+Error handling made via built-in methods and BLoC.
 Navigation made with Navigator 2.0. Each Screen is wrapped in Page for better route building.
 
 ## Remote logging
-Remote logging will be created with Firebase. Local terminal logging via logger package.
+Remote logging will be created with Firebase.
 
 ## Build process
 TODO
@@ -94,8 +94,7 @@ Navigation mechanism is Navigator 2.0. Each Screen is Wrapped in Page for better
 Currently no localization exists.
 
 ## Styles and themes
-Spacings are made with the step=2. E.g. spacing_1=8, spacing 1.25=10. Default theme is dark. Has
-support for a light theme.
+Spacings are made with the step=2. E.g. spacing_1=8, spacing 1.25=10. Default theme is light.
 
 ## Supported platforms
 * Android

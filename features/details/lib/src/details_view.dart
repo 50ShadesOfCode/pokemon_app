@@ -41,13 +41,14 @@ class _DetailsViewState extends State<DetailsView> {
                     imageBuilder:
                         (BuildContext context, ImageProvider imageProvider) =>
                             Container(
-                      height: 200,
-                      width: 200,
+                      height: Dimensions.ITEM_HEIGHT_200,
+                      width: Dimensions.ITEM_WIDTH_200,
                       decoration: BoxDecoration(
-                          image: DecorationImage(
-                        image: imageProvider,
-                        fit: BoxFit.cover,
-                      )),
+                        image: DecorationImage(
+                          image: imageProvider,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
                     ),
                     placeholder: (BuildContext context, String url) =>
                         const CircularProgressIndicator(),
@@ -74,9 +75,8 @@ class _DetailsViewState extends State<DetailsView> {
                         const Text(AppStrings.networkErrorMessage),
                         MaterialButton(
                           onPressed: () {
-                            BlocProvider.of<DetailsBloc>(context).add(
-                              InitDetailsEvent(url: state.currentUrl),
-                            );
+                            BlocProvider.of<DetailsBloc>(context)
+                                .add(InitDetailsEvent(url: state.currentUrl));
                           },
                           child: const Icon(Icons.restart_alt),
                         )

@@ -1,5 +1,4 @@
 import 'package:domain/domain.dart';
-import 'package:domain/src/usecase/usecase.dart';
 
 class GetPokemonDetailsUseCase extends FutureUseCase<PokemonDetails, String> {
   final PokemonRepository _pokemonRepository;

@@ -1,5 +1,5 @@
 name: domain
-description: A new Flutter package project.
+description: domain module for pokemon app.
 version: 0.0.1
 publish_to: none
 environment:

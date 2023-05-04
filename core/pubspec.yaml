@@ -1,5 +1,5 @@
 name: core
-description: A new Flutter package project.
+description: Core module for pokemon app.
 version: 0.0.1
 publish_to: none
 

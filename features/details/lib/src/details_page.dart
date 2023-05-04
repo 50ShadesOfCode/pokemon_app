@@ -8,6 +8,7 @@ import 'package:details/src/details_view.dart';
 
 class DetailsPage extends PageWithScaffoldKey<dynamic> {
   final String url;
+
   DetailsPage({
     required this.url,
   });

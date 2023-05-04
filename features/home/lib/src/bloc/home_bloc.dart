@@ -13,6 +13,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   final ApplicationRouter _applicationRouter;
   final GetPokemonListUseCase _getPokemonListUseCase;
   final InitPokemonListUseCase _initPokemonListUseCase;
+
   HomeBloc({
     required ApplicationRouter applicationRouter,
     required GetPokemonListUseCase getPokemonListUseCase,
